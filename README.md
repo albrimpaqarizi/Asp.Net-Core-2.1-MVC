@@ -1,5 +1,5 @@
 
-# Renatl Online Booking
+# Rental Online Booking
 In this project is a web application where you can posted cars for rental.
 
 
