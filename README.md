@@ -1,6 +1,5 @@
-# Asp.Net Core 2.1 MVC
 
-<h1>Renatl Online Booking</h1>
+# Renatl Online Booking
 In this project is a web application where you can posted cars for rental.
 
 
