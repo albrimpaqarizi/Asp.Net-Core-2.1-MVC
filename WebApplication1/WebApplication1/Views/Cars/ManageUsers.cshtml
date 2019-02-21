@@ -1,0 +1,67 @@
+﻿@model WebApplication1.Areas.Admin.Models.ManageUsersViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container pt-5">
+    <div class="m-5 pt-5">
+        <h2 class="pb-2">Manage users</h2>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Firstname
+                    </th>
+                    <th>
+                        Lastname
+                    </th>
+                    <th>
+                        Company Name
+                    </th>
+                    <th>
+                        Email
+                    </th>
+                    <th> Options For</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.AssignedUsers)
+                {
+                <tr>
+                    <td>
+                        @item.Firstname
+                    </td>
+                    <td>
+                        @item.Lastname
+                    </td>
+                    <td>
+                        @item.Company
+                    </td>
+                    <td>
+                        @item.Email
+                    </td>
+                    <td>
+                        <a class="btn-sm btn-info" asp-action="RemoveUserFromCars" asp-route-id="@Model.Id" asp-route-userId="@item.Id">Remove</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="AddUserToCars" method="post">
+                    <input type="hidden" name="id" value="@Model.Id" />
+                    <div class="form-group">
+                        <label class="control-label"></label>
+                        <select name="userId" class="form-control" asp-items="Model.AvailableUsersSelectList"></select>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Add" class="btn btn-info" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<section id="lgoin-page-wrap" class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-md-8 m-auto">
+                <div class="login-page-content">
+                    <div class="login-form">
+                        <h3>Sign Up</h3>
+                        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="name">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input asp-for="Input.Firstname" type="text" class="form-control" placeholder="Full Name"/>
+                                        <span asp-validation-for="Input.Firstname" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input asp-for="Input.Lastname" type="datetime" class="form-control" placeholder="Birthday" />
+                                        <span asp-validation-for="Input.Lastname" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="name">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <input asp-for="Input.Age" type="text" class="form-control"  placeholder="Gender"/>
+                                        <span asp-validation-for="Input.Age" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input asp-for="Input.Company" type="number" class="form-control"  placeholder="Age" />
+                                        <span asp-validation-for="Input.Company" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="email">
+                                <input asp-for="Input.Email" class="form-control" placeholder="Email" />
+                                <span asp-validation-for="Input.Email" class="text-danger"></span>
+                            </div>
+                            <div class="password">
+                                <input asp-for="Input.Password" class="form-control" placeholder="Password" />
+                                <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            </div>
+                            <div class="password">
+                                <input asp-for="Input.ConfirmPassword" class="form-control"  placeholder="ConfirmPassword"/>
+                                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                            </div>
+                            <div class="log-btn">
+                                <button type="submit"><i class="fa fa-check-square"></i> Sign Up</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="login-other">
+                        <span class="or">or</span>
+                        <a href="#" class="login-with-btn facebook"><i class="fa fa-facebook"></i> Signup With Facebook</a>
+                        <a href="#" class="login-with-btn google"><i class="fa fa-google"></i> Signup With Google</a>
+                    </div>
+                    <div class="create-ac">
+                        <p>Have an account?<a asp-page="./Login">Sign In</a></p>
+                    </div>
+                    <div class="login-menu">
+                        <a href="about.html">About</a>
+                        <span>|</span>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
